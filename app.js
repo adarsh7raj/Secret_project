@@ -25,7 +25,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://127.0.0.1:27017/userDB");
+//mongoose.connect("mongodb://127.0.0.1:27017/userDB");
+const MONGODB_CONNECT_URI="mongodb+srv://adarshrajyadav68:tesrect7@cluster0.ymcx3jk.mongodb.net/userDB";
+mongoose.connect(process.env.MONGODB_CONNECT_URI);
+//mongoose.connect("mongodb+srv://adarshrajyadav68:tesrect7@cluster0.ymcx3jk.mongodb.net/userDB");
 //mongoose.set("useCreateIndex",true);
 const userschema=new mongoose.Schema({
     email:String,
@@ -165,6 +168,7 @@ else{
 }
 });
 });
-app.listen(3000,function(){
-    console.log("server started on port 3000.");
-});
+app.listen(process.env.PORT || 3000, function () {
+    console.log("Server started on port " + (process.env.PORT || 3000));
+  });
+  
