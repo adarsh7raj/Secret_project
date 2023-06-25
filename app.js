@@ -28,7 +28,7 @@ app.use(passport.session());
 //mongoose.connect("mongodb://127.0.0.1:27017/userDB");
 const MONGODB_CONNECT_URI="mongodb+srv://adarshrajyadav68:tesrect7@cluster0.ymcx3jk.mongodb.net/userDB";
 mongoose.connect(process.env.MONGODB_CONNECT_URI);
-//mongoose.connect("mongodb+srv://adarshrajyadav68:tesrect7@cluster0.ymcx3jk.mongodb.net/userDB");
+mongoose.connect("mongodb+srv://adarshrajyadav68:tesrect7@cluster0.ymcx3jk.mongodb.net/userDB");
 //mongoose.set("useCreateIndex",true);
 const userschema=new mongoose.Schema({
     email:String,
@@ -55,7 +55,7 @@ passport.deserializeUser(function (id, done) {
   passport.use(new googlestrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRETS,
-    callbackURL: "http://localhost:3000/auth/google/secrets"
+    callbackURL:process.env.CALLBACKURL
   },
   function(accessToken, refreshToken, profile, cb) {
     console.log(profile);
