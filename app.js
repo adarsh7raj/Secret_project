@@ -69,7 +69,7 @@ app.get("/",function(req,res){
 
 });
 app.get("/auth/google",
-passport.authenticate("google",{scope:["profile"]})
+passport.authenticate("google",{scope:["profile"]}) //not able to host the website on render.com
 
 );
 app.get("/auth/google/secrets",
