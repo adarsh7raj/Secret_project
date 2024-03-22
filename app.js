@@ -1,4 +1,4 @@
-//jshint esversion:6
+ //jshint esversion:6
 require("dotenv").config();
 const express=require("express");
 const bodyParser=require("body-parser");
@@ -26,9 +26,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //mongoose.connect("mongodb://127.0.0.1:27017/userDB");
-const MONGODB_CONNECT_URI="mongodb+srv://adarshrajyadav68:tesrect7@cluster0.ymcx3jk.mongodb.net/userDB";
+
 mongoose.connect(process.env.MONGODB_CONNECT_URI);
-mongoose.connect("mongodb+srv://adarshrajyadav68:tesrect7@cluster0.ymcx3jk.mongodb.net/userDB");
+
 //mongoose.set("useCreateIndex",true);
 const userschema=new mongoose.Schema({
     email:String,
